@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Status page</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="singlegame" v-for="game in games">
+        <div class="game-panel">
+          <div class="start">
+            <img class="gameImage" :src="game.gameImg" alt="" />
+            <p class="game">{{game.gameName}}</p>
+          </div>
+          <div class="end">
+            <p class="lastupdate">Last update: 1 day ago</p>
+          </div>
+        </div>
+
+        <div class="cheat-panel" v-for="cheat in game.cheats">
+          <div class="first">
+            <p
+              class="alert"
+              :class="{ red: cheat.detected, green: !cheat.detected, orange: cheat.updating}"
+            >
+              •
+            </p>
+            <p class="cheatname">{{cheat.cheatName}}</p>
+          </div>
+
+          <div class="status-div">
+            <div class="detection status" v-show="cheat.detected">detected</div>
+            <div class="detection status" v-show="!cheat.detected">
+              undetected
+            </div>
+            <p>and</p>
+            <div class="update status" v-show="!cheat.updating">up to date</div>
+            <div class="update status" v-show="cheat.updating">updating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  new Vue({
+    el: "#container",
+    data: {
+      games: [
+        {
+          id: 1,
+          gameName: "Apex Legends",
+          gameImg:
+            "https://ring-1.io/build/images/games/apex-legends.62bf34fc.png",
+          cheats: [
+            {
+              id: 2,
+              cheatName: "Apex Cell",
+              detected: false,
+              updating: false,
+            },
+            {
+              id: 3,
+              cheatName: "Apex Phoenix",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+        {
+          id: 4,
+          gameName: "ARK",
+          gameImg: "https://ring-1.io/build/images/games/ark.ac8d5d40.png",
+          cheats: [
+            {
+              id: 5,
+              cheatName: "ARK Lynx",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+        {
+          id: 6,
+          gameName: "DayZ",
+          gameImg: "https://ring-1.io/build/images/games/dayz.17d0ac49.png",
+          cheats: [
+            {
+              id: 7,
+              cheatName: "DayZ Lynx",
+              detected: false,
+              updating: false,
+            },
+            {
+              id: 8,
+              cheatName: "Intergrated HWID Spoofer",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+        {
+          id: 9,
+          gameName: "Dead by Daylight",
+          gameImg:
+            "https://ring-1.io/build/images/games/dead-by-daylight.c3159043.png",
+          cheats: [
+            {
+              id: 10,
+              cheatName: "Dead by Daylight Lynx",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+        {
+          id: 11,
+          gameName: "Escape from Tarkov",
+          gameImg:
+            "https://ring-1.io/build/images/games/escape-from-tarkov.58f1c95e.png",
+          cheats: [
+            {
+              id: 12,
+              cheatName: "Escape from Tarkov Lynx",
+              detected: false,
+              updating: false,
+            },
+            {
+              id: 13,
+              cheatName: "Intergrated HWID Spoofer",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+        {
+          id: 14,
+          gameName: "Fortnite: Battle Royale",
+          gameImg: "https://i.postimg.cc/tCRdbhgg/fortnitepng.png",
+          cheats: [
+            {
+              id: 15,
+              cheatName: "Fortnite Lynx",
+              detected: false,
+              updating: false,
+            },
+            {
+              id: 16,
+              cheatName: "Intergrated HWID Spoofer",
+              detected: false,
+              updating: false,
+            },
+            {
+              id: 15,
+              cheatName: "Fortnite Echo",
+              detected: true,
+              updating: true,
+            },
+            {
+              id: 16,
+              cheatName: "Intergrated HWID Spoofer",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+        {
+          id: 17,
+          gameName: "Rainbow 6",
+          gameImg:
+            "https://ring-1.io/build/images/games/rainbow-six-siege.f7d35abe.png",
+          cheats: [
+            {
+              id: 18,
+              cheatName: "Rainbox 6 Lynx",
+              detected: false,
+              updating: false,
+            },
+            {
+              id: 19,
+              cheatName: "Intergrated HWID Spoofer",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+        {
+          id: 20,
+          gameName: "Rust",
+          gameImg: "https://ring-1.io/build/images/games/rust.28c48d56.png",
+          cheats: [
+            {
+              id: 21,
+              cheatName: "Rust Pheonix",
+              detected: false,
+              updating: false,
+            },
+            {
+              id: 22,
+              cheatName: "Rust Lynx",
+              detected: false,
+              updating: false,
+            },
+            {
+              id: 23,
+              cheatName: "Intergrated HWID Spoofer",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+        {
+          id: 24,
+          gameName: "Splitgate",
+          gameImg: "https://ring-1.io/build/images/games/ark.ac8d5d40.png",
+          cheats: [
+            {
+              id: 25,
+              cheatName: "Splitgate Lynx",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+        {
+          id: 26,
+          gameName: "Valorant",
+          gameImg: "https://ring-1.io/build/images/games/valorant.23f7e958.png",
+          cheats: [
+            {
+              id: 27,
+              cheatName: "Valorant Amber",
+              detected: false,
+              updating: false,
+            },
+          ],
+        },
+      ],
+    },
+  });
+</script>
+<style>
+  :root {
+    --bg: #101019;
+    --panel: #1a1a28;
+    --updating: #daa305;
+    --undetected: #0db15c;
+    --detected: #e74c3c;
+    --text: #f1f1f1;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+
+  body {
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.2rem;
+  }
+  .singlegame {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    row-gap: 0.6rem;
+    color: var(--text);
+  }
+  .game-panel {
+    background: var(--panel);
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+  }
+  .gameImage {
+    width: 48px;
+    height: 48px;
+    filter: hue-rotate(135deg) brightness(1.5);
+  }
+  .gameImage > .red {
+    filter: hue-rotate(7deg) brightness(1.2);
+  }
+  .gameImage > .green {
+    filter: hue-rotate(135deg) brightness(1.5);
+  }
+  .start {
+    display: flex;
+    column-gap: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .end {
+    display: flex;
+    column-gap: 4rem;
+  }
+  .status-div {
+    display: flex;
+    column-gap: 0.5rem;
+  }
+  .cheat-panel {
+    width: 80%;
+    height: 5rem;
+    background-color: var(--panel);
+    display: flex;
+    align-self: end;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    justify-content: space-between;
+  }
+  .first {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    align-items: center;
+  }
+  .alert {
+    font-size: 1.5rem;
+    color: var(--text);
+  }
+  .green {
+    color: var(--undetected);
+  }
+  .red {
+    color: var(--detected);
+  }
+  .orange {
+    color: var(--updating) !important;
+  }
+</style>
